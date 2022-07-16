@@ -1,0 +1,37 @@
+@use '../utils/breakpoints' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
+// Mobile
+$headline-mobile: h1 bold 24px, h2 bold 20px, h3 bold 18px, h4 semibold 16px, h5 semibold 14px;
+
+@each $header, $name-weight, $size in $headline-mobile {
+    #{$header} {
+        font-weight: get-weight($name-weight);
+        @include font-style-size($size, em);
+    }
+}
+
+// Tablet
+@include media(tablet-xs) {
+    $headline-tablet: h1 bold 42px, h2 bold 32px, h3 bold 24px, h4 bold 18px, h5 semibold 16px;
+
+    @each $header, $name-weight, $size in $headline-tablet {
+        #{$header} {
+            font-weight: get-weight($name-weight);
+            @include font-style-size($size, em);
+        }
+    }
+}
+
+// Desktop
+@include media(desktop-xs) {
+    $headline-tablet: h1 bold 48px, h2 bold 42px, h3 bold 32px, h4 bold 24px, h5 bold 18px;
+
+    @each $header, $name-weight, $size in $headline-tablet {
+        #{$header} {
+            font-weight: get-weight($name-weight);
+            @include font-style-size($size, em);
+        }
+    }
+}
