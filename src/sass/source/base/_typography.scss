@@ -8,7 +8,7 @@ $headline-mobile: h1 bold 24px, h2 bold 20px, h3 bold 18px, h4 semibold 16px, h5
 @each $header, $name-weight, $size in $headline-mobile {
     #{$header} {
         font-weight: get-weight($name-weight);
-        @include font-style-size($size, em);
+        @include font-style-size($size);
     }
 }
 
@@ -19,7 +19,7 @@ $headline-mobile: h1 bold 24px, h2 bold 20px, h3 bold 18px, h4 semibold 16px, h5
     @each $header, $name-weight, $size in $headline-tablet {
         #{$header} {
             font-weight: get-weight($name-weight);
-            @include font-style-size($size, em);
+            @include font-style-size($size);
         }
     }
 }
@@ -31,7 +31,7 @@ $headline-mobile: h1 bold 24px, h2 bold 20px, h3 bold 18px, h4 semibold 16px, h5
     @each $header, $name-weight, $size in $headline-tablet {
         #{$header} {
             font-weight: get-weight($name-weight);
-            @include font-style-size($size, em);
+            @include font-style-size($size);
         }
     }
 }

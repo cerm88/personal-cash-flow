@@ -1,12 +1,8 @@
 @use 'functions' as *;
 
-// Font styles em,rem
-@mixin font-style-size($size, $unit) {
-    @if $unit == em {
-        font-size: em($size);
-    } @else if $unit == rem {
-        font-size: rem($size);
-    }
+// Font styles in rem
+@mixin font-style-size($size) {
+    font-size: rem($size);
     line-height: rem($size) * 1.5;
     font-style: normal;
 }
