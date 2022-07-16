@@ -4,11 +4,10 @@ module.exports = {
         es2021: true,
         node: true,
     },
-    extends: ['plugin:vue/vue3-essential', 'airbnb-base', 'prettier'],
+    extends: ['plugin:vue/vue3-essential', 'eslint:recommended', '@vue/eslint-config-prettier'],
     parserOptions: {
         ecmaVersion: 12,
     },
-    plugins: ['vue'],
     rules: {
         indent: ['error', 4],
         'max-len': [
@@ -32,5 +31,11 @@ module.exports = {
             },
         ],
         'no-restricted-syntax': ['error', 'ForInStatement', 'WithStatement'],
+        'prettier/prettier': [
+            'error',
+            {
+                endOfLine: 'auto',
+            },
+        ],
     },
 };
