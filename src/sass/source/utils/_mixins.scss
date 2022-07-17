@@ -3,7 +3,7 @@
 // Font styles in rem
 @mixin font-style-size($size) {
     font-size: rem($size);
-    line-height: rem($size) * 1.5;
+    line-height: 1.5;
     font-style: normal;
 }
 

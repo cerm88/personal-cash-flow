@@ -1,17 +1,30 @@
 <template>
-    <div class="test">
-        <h1>Esto es un h1</h1>
-        <h2>Esto es un h2</h2>
-        <h3>Esto es un h3</h3>
-        <h4>Esto es un h4</h4>
-        <h5>Esto es un h5</h5>
-        <p>Hola p</p>
-        <a href="#">esto es un ancla</a>
-    </div>
+    <!-- Suspense nos permite cargar el componente antes de la carga asincrona -->
+    <suspense>
+        <!-- Slot de carga de componente por defecto -->
+        <template #default>
+            <HomePage />
+        </template>
+        <!-- Slot de carga de componente antes de la carga -->
+        <template #fallback>
+            <SplashScreen />
+        </template>
+    </suspense>
 </template>
 
 <script setup>
-//
+import SplashScreen from './components/SplashScreen.vue';
+import { defineAsyncComponent } from 'vue';
+
+// Componente asincrono que se cargará cuando lo necesitemos
+const HomePage = defineAsyncComponent(() => {
+    // Promesa para cargar un componente
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(import('./components/HomePage.vue'));
+        }, 2500);
+    });
+});
 </script>
 
 <style lang="scss"></style>

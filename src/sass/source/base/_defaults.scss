@@ -21,7 +21,7 @@ body {
     font-family: fonts.$body;
     color: var(--color-body);
     background-color: var(--color-background);
-    line-height: 1.5rem;
+    line-height: 1.5;
 }
 
 h1,
@@ -36,4 +36,8 @@ h6 {
 
 a {
     color: var(--color-body);
+}
+
+#app {
+    min-height: inherit;
 }
