@@ -1,0 +1,43 @@
+@use '../utils/colors';
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
+.header-container {
+    max-width: 100%;
+    width: 100vw;
+    height: rem(108px);
+    margin-bottom: rem(12px);
+}
+
+.resume-container {
+    min-height: calc(100vh - rem(120px));
+}
+
+.movements-container {
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    width: 100vw;
+    z-index: 1;
+    box-shadow: 0 -8px 16px colors.$neutral30;
+    border-top-left-radius: rem(24px);
+    border-top-right-radius: rem(24px);
+    background-color: colors.$neutral10;
+    .head {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: rem(24px);
+        width: 100%;
+        .grip {
+            width: rem(120px);
+            height: rem(8px);
+            background-color: colors.$neutral40;
+            border-radius: rem(4px);
+        }
+    }
+    .body {
+        height: 75vh;
+        width: 100%;
+    }
+}

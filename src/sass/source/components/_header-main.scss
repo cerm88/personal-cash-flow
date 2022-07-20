@@ -2,17 +2,20 @@
 @use '../utils/functions' as *;
 
 .header {
-    width: 100vw;
-    height: rem(108px);
+    width: 100%;
+    height: inherit;
     padding: rem(34px) rem(24px);
     display: flex;
     align-items: center;
+    background-color: colors.$neutral10;
+    position: fixed;
     img {
         width: rem(40px);
     }
     h1 {
         margin: 0 auto;
         padding-right: rem(40px);
+        font-size: rem(24px);
         color: colors.$primary-main;
         span {
             color: colors.$secondary-main;
