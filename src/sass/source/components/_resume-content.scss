@@ -1,0 +1,14 @@
+@use '../utils/colors';
+@use '../utils/functions' as *;
+
+main {
+    text-align: center;
+    p {
+        font-size: rem(18px);
+        margin-bottom: rem(8px);
+    }
+    h1 {
+        font-size: rem(48px);
+        color: colors.$secondary-main;
+    }
+}
