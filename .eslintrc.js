@@ -37,5 +37,11 @@ module.exports = {
                 endOfLine: 'auto',
             },
         ],
+        'vue/multi-word-component-names': [
+            'error',
+            {
+                ignores: ['index'],
+            },
+        ],
     },
 };

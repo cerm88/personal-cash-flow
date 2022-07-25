@@ -15,14 +15,8 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { toRefs } from 'vue';
-
-// Función para formatear números a moneda
-const currencyFormater = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-});
+import { computed, toRefs } from 'vue';
+import { currencyFormatter } from '../utils/formatter';
 
 const props = defineProps({
     // Título con monto de fecha
@@ -41,7 +35,7 @@ const amountVisual = computed(() =>
     dateAmount.value !== null ? dateAmount.value : totalAmount.value,
 );
 
-const amountCurrency = computed(() => currencyFormater.format(amountVisual.value));
+const amountCurrency = computed(() => currencyFormatter.format(amountVisual.value));
 
 const labelVisual = computed(() => (dateLabel.value !== null ? dateLabel.value : totalLabel.value));
 </script>
