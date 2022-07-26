@@ -56,6 +56,9 @@ const zero = computed(() => amountToPx(0));
 const showPoiter = ref(false);
 const pointer = ref(0);
 
+// Emitir evento al seleccionar un poits en el gráfico
+const emits = defineEmits(['select']);
+
 const tap = (e) => {
     const { target, touches } = e;
     showPoiter.value = true;
@@ -64,6 +67,8 @@ const tap = (e) => {
     const elementX = target.getBoundingClientRect().x;
     const touchX = touches[0].clientX;
     pointer.value = ((touchX - elementX) * 300) / elementWidth;
+    // <!-- Todo: propagar el monto al componente padre  -->
+    emits('select');
 };
 
 const untap = () => {
