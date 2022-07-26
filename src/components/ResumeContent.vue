@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="main-resumen">
         <!-- Titulo y monto -->
         <p>{{ labelVisual }}</p>
         <h1>{{ amountCurrency }}</h1>

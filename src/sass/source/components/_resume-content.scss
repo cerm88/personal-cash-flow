@@ -1,14 +1,21 @@
 @use '../utils/colors';
 @use '../utils/functions' as *;
 
-main {
+.main-resumen {
     text-align: center;
     p {
         font-size: rem(18px);
         margin-bottom: rem(8px);
     }
+
     h1 {
         font-size: rem(48px);
         color: colors.$secondary-main;
+        margin-bottom: rem(42px);
+    }
+
+    .graphic,
+    .action {
+        margin-bottom: rem(42px);
     }
 }

@@ -13,7 +13,9 @@
                 :date-amount="dateAmount"
             >
                 <template #graphic>Graphic</template>
-                <template #action>Action</template>
+                <template #action>
+                    <AddMovement />
+                </template>
             </ResumeContent>
         </template>
         <!-- Slot movement history -->
@@ -28,6 +30,7 @@ import LayoutMain from './LayoutMain.vue';
 import HeaderMain from './HeaderMain.vue';
 import ResumeContent from './ResumeContent.vue';
 import MovementsHistory from './MovementsHistroy/index.vue';
+import AddMovement from './AddMovement.vue';
 
 // Label de fecha dinámica
 const dateLabel = null;
