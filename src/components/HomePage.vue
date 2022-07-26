@@ -12,7 +12,9 @@
                 :total-amount="1000"
                 :date-amount="dateAmount"
             >
-                <template #graphic>Graphic</template>
+                <template #graphic>
+                    <GraphicMovements />
+                </template>
                 <template #action>
                     <AddMovement />
                 </template>
@@ -31,6 +33,7 @@ import HeaderMain from './HeaderMain.vue';
 import ResumeContent from './ResumeContent.vue';
 import MovementsHistory from './MovementsHistroy/index.vue';
 import AddMovement from './AddMovement.vue';
+import GraphicMovements from './GraphicMovements.vue';
 
 // Label de fecha dinámica
 const dateLabel = null;
