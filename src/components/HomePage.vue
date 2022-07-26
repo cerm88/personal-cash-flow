@@ -13,7 +13,7 @@
                 :date-amount="dateAmount"
             >
                 <template #graphic>
-                    <GraphicMovements />
+                    <GraphicMovements :amounts="amounts" />
                 </template>
                 <template #action>
                     <AddMovement />
@@ -92,6 +92,10 @@ const movements = [
         amount: 1000,
     },
 ];
+
+// Lista de montos
+// <!-- todo: extraer los montos a este array de la colección movements -->
+const amounts = [100, 200, 500, 200, -400, -600, -300, 0, 300, 500];
 </script>
 
 <style lang="scss" scoped></style>
