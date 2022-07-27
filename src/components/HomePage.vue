@@ -16,13 +16,13 @@
                     <GraphicMovements :amounts="amounts" />
                 </template>
                 <template #action>
-                    <AddMovement />
+                    <AddMovement @create="create" />
                 </template>
             </ResumeContent>
         </template>
         <!-- Slot movement history -->
         <template #movements>
-            <MovementsHistory :movements="movements" />
+            <MovementsHistory :movements="movements" @remove="remove" />
         </template>
     </LayoutMain>
 </template>
@@ -34,16 +34,16 @@ import ResumeContent from './ResumeContent.vue';
 import MovementsHistory from './MovementsHistroy/index.vue';
 import AddMovement from './AddMovement.vue';
 import GraphicMovements from './GraphicMovements.vue';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 
 // Label de fecha dinámica
-const dateLabel = null;
+const dateLabel = ref(null);
 
 // Monto de fecha dinámico
-const dateAmount = null;
+const dateAmount = ref(null);
 
 // Lista de movimientos
-const movements = [
+const movements = ref([
     {
         id: 0,
         title: 'Movimiento 1',
@@ -114,12 +114,12 @@ const movements = [
         amount: 400,
         date: new Date('07-27-2022'),
     },
-];
+]);
 
 // Lista de montos
 const amounts = computed(() => {
     const today = new Date();
-    return movements
+    return movements.value
         .filter((movement) => {
             const daysDiff = (today.getTime() - movement.date.getTime()) / (1000 * 60 * 60 * 24);
             return daysDiff <= 30;
@@ -130,6 +130,21 @@ const amounts = computed(() => {
             return lastMovements.reduce((accAmount, amount) => accAmount + amount, 0);
         });
 });
+
+// Crear un movimiento
+const create = (movement) => {
+    const nextId = Math.max(...movements.value.map((movement) => movement.id)) + 1;
+
+    movements.value.push({
+        id: nextId,
+        ...movement,
+    });
+};
+
+// Eliminar un movimiento
+const remove = (id) => {
+    movements.value = movements.value.filter((movement) => movement.id !== id);
+};
 </script>
 
 <style lang="scss" scoped></style>

@@ -30,8 +30,10 @@ const props = defineProps({
 // Para que los props sean reactivos
 const { movements } = toRefs(props);
 
+const emits = defineEmits(['remove']);
+
 const remove = (id) => {
-    console.log(id);
+    emits('remove', id);
 };
 </script>
 

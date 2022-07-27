@@ -16,7 +16,7 @@
                     </div>
                     <div class="field">
                         <label>Descripción</label>
-                        <textarea rows="4" v-model="desc"></textarea>
+                        <textarea rows="4" v-model="description"></textarea>
                     </div>
                     <div class="field">
                         <label>Tipo de movimiento</label>
@@ -56,15 +56,21 @@ import ModalWindows from './ModalWindows.vue';
 const showModal = ref(false);
 const title = ref('');
 const amount = ref(0);
-const desc = ref('');
+const description = ref('');
 const movementType = ref('Ingreso');
 
+const emits = defineEmits(['create']);
+
 const submit = () => {
+    // Agregar datos de movimientos
+    emits('create', {
+        title: title.value,
+        description: description.value,
+        amount: movementType.value === 'Ingreso' ? amount.value : -amount.value,
+        date: new Date(),
+    });
+    // Cerrar formulario y ventana modal
     showModal.value = false;
-    console.log('title:', title.value);
-    console.log('amount:', amount.value);
-    console.log('desc:', desc.value);
-    console.log('movementType:', movementType.value);
 };
 </script>
 

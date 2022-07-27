@@ -36,8 +36,6 @@ const remove = () => {
 };
 
 // Color de la moneda
-// const setCurrency = () =>
-//     amount >= 0 ? 'movement--positive-currency' : 'movement--negative-currency';
 const isNegative = computed(() => amount.value < 0);
 </script>
 
