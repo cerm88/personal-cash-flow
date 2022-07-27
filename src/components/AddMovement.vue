@@ -50,7 +50,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import ModalWindows from './ModalWindows.vue';
 
 const showModal = ref(false);
@@ -81,6 +81,12 @@ const submit = () => {
     // Cerrar formulario y ventana modal
     showModal.value = false;
 };
+
+// Desactivar overflowy en el body
+watch(showModal, () => {
+    const body = document.body;
+    body.style.overflowY = showModal.value ? 'hidden' : 'auto';
+});
 </script>
 
 <style lang="scss" scoped></style>

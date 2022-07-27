@@ -20,16 +20,7 @@
         overflow-y: auto;
         flex-wrap: wrap;
         padding-bottom: rem(8px);
-
-        &::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: colors.$neutral40;
-            border-radius: 4px;
-        }
+        @extend %scrollbar;
     }
 }
 
@@ -52,9 +43,11 @@
         justify-content: center;
         align-items: flex-start;
         width: 75%;
+
         h3 {
             font-size: rem(18px);
         }
+
         p {
             font-size: rem(14px);
         }
@@ -69,9 +62,11 @@
         img {
             width: 24px;
             cursor: pointer;
+
             &:hover {
                 opacity: 0.5;
             }
+
             &:active {
                 opacity: 1;
             }

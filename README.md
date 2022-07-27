@@ -4,7 +4,7 @@ Se basa en mostrar una aplicación frontend de tipo financiera, que se basa en g
 
 ## **Estado actual**
 
-Proyecto actualmente en desarrollo.
+Proyecto actualmente producción. Url del proyecto: [personal-cash-flow.netlify.app](https://personal-cash-flow.netlify.app/).
 
 ## **Assets del proyecto**
 

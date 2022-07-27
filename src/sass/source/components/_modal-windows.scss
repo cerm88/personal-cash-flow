@@ -1,5 +1,6 @@
 @use '../utils/colors';
 @use '../utils/functions' as *;
+@use '../utils/mixins' as *;
 
 .modal {
     position: fixed;
@@ -9,7 +10,6 @@
     top: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,6 +22,8 @@
         padding: rem(28px);
         background-color: colors.$white;
         border-radius: rem(4px);
+        overflow-y: auto;
+        @extend %scrollbar;
     }
 
     .head {
@@ -29,16 +31,20 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: rem(32px);
+
         p {
             font-size: rem(24px);
             color: colors.$primary-main;
         }
+
         img {
             width: 24px;
             cursor: pointer;
+
             &:hover {
                 opacity: 0.5;
             }
+
             &:active {
                 opacity: 1;
             }

@@ -4,8 +4,8 @@
 
 .action {
     $parent-context: 18px;
-
     font-size: rem(18px);
+
     input[type='button'],
     input[type='submit'] {
         color: colors.$white;
@@ -32,10 +32,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 
     $parent-context: 18px;
-
-    width: 100%;
     font-size: rem(18px);
 
     .field {
@@ -47,6 +46,7 @@
         label {
             margin-bottom: em(8px, $parent-context);
         }
+
         input[type='text'],
         input[type='number'],
         textarea {
@@ -55,9 +55,11 @@
             border: 2px solid colors.$primary-main;
             border-radius: em(4px, $parent-context);
             outline: none;
+
             &:hover {
                 border: em(2px, $parent-context) solid colors.$variation-tone25;
             }
+
             &:focus {
                 border: em(2px, $parent-context) solid colors.$secondary-main;
                 @include drop-shadow(medium);
@@ -68,6 +70,7 @@
         input[type='number'] {
             height: em(50px, $parent-context);
             padding: 0 em(12px, $parent-context);
+
             &[type='number'] {
                 text-align: right;
             }
@@ -82,6 +85,7 @@
             display: flex;
             align-content: center;
             justify-content: flex-start;
+
             span {
                 font-size: inherit;
             }

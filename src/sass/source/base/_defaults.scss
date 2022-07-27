@@ -1,5 +1,6 @@
 @use '../utils/fonts';
 @use '../utils/colors';
+@use '../utils/mixins';
 
 :root {
     --color-body: #{colors.$neutral80};
@@ -22,6 +23,7 @@ body {
     color: var(--color-body);
     background-color: var(--color-background);
     line-height: 1.5;
+    @extend %scrollbar;
 }
 
 h1,
