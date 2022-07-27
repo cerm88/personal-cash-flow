@@ -2,7 +2,9 @@
     <main class="main-resumen">
         <!-- Titulo y monto -->
         <p>{{ labelVisual }}</p>
-        <h1>{{ amountCurrency }}</h1>
+        <h1 :class="{ 'curr-negative': isNegative, 'curr-positive': !isNegative }">
+            {{ amountCurrency }}
+        </h1>
         <!-- Gráfico -->
         <div class="graphic">
             <slot name="graphic"></slot>
@@ -38,6 +40,8 @@ const amountVisual = computed(() =>
 const amountCurrency = computed(() => currencyFormatter.format(amountVisual.value));
 
 const labelVisual = computed(() => (dateLabel.value !== null ? dateLabel.value : totalLabel.value));
+
+const isNegative = computed(() => totalAmount.value < 0);
 </script>
 
 <style lang="scss" scoped></style>

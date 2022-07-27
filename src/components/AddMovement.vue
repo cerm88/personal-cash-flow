@@ -69,6 +69,15 @@ const submit = () => {
         amount: movementType.value === 'Ingreso' ? amount.value : -amount.value,
         date: new Date(),
     });
+
+    // <!-- Todo: Actualizar base de datos mediante una API -->
+
+    // Reiniciando campos
+    title.value = '';
+    description.value = '';
+    amount.value = 0;
+    movementType.value = 'Ingreso';
+
     // Cerrar formulario y ventana modal
     showModal.value = false;
 };

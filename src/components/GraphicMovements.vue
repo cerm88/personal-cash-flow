@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { toRefs, computed, ref } from 'vue';
+import { toRefs, computed, ref, watch } from 'vue';
 
 const props = defineProps({
     amounts: {
@@ -40,7 +40,7 @@ const amountToPx = (amount) => {
 const points = computed(() => {
     const total = amounts.value.length;
     const difX = 300 / total;
-    const x0 = amountToPx(amounts.value[0]);
+    const x0 = total ? amountToPx(amounts.value[0]) : 0;
 
     return amounts.value.reduce((preAmount, curAmount, i) => {
         const x = difX * (i + 1);
@@ -59,6 +59,16 @@ const pointer = ref(0);
 // Emitir evento al seleccionar un poits en el gráfico
 const emits = defineEmits(['select']);
 
+// Observador para obtener el índice del movimiento
+watch(pointer, (value) => {
+    const total = amounts.value.length;
+    const index = Math.ceil((value * total) / 300) - 1;
+
+    if (index < 0 || index >= total) return;
+
+    emits('select', amounts.value[index], index);
+});
+
 const tap = (e) => {
     const { target, touches } = e;
     showPoiter.value = true;
@@ -67,8 +77,6 @@ const tap = (e) => {
     const elementX = target.getBoundingClientRect().x;
     const touchX = touches[0].clientX;
     pointer.value = ((touchX - elementX) * 300) / elementWidth;
-    // <!-- Todo: propagar el monto al componente padre  -->
-    emits('select');
 };
 
 const untap = () => {

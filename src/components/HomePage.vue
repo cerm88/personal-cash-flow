@@ -9,11 +9,11 @@
             <ResumeContent
                 :total-label="'Ahorro Total'"
                 :date-label="dateLabel"
-                :total-amount="1000"
+                :total-amount="totalAmount"
                 :date-amount="dateAmount"
             >
                 <template #graphic>
-                    <GraphicMovements :amounts="amounts" />
+                    <GraphicMovements :amounts="amounts" @select="select" />
                 </template>
                 <template #action>
                     <AddMovement @create="create" />
@@ -131,6 +131,13 @@ const amounts = computed(() => {
         });
 });
 
+// Obteniendo el monto total
+const totalAmount = computed(() =>
+    movements.value
+        .map((movement) => movement.amount)
+        .reduce((accAmount, amount) => accAmount + amount, 0),
+);
+
 // Crear un movimiento
 const create = (movement) => {
     const nextId = Math.max(...movements.value.map((movement) => movement.id)) + 1;
@@ -144,6 +151,20 @@ const create = (movement) => {
 // Eliminar un movimiento
 const remove = (id) => {
     movements.value = movements.value.filter((movement) => movement.id !== id);
+};
+
+// Al seleccionar un movimiento
+const select = (selectedAmount, index) => {
+    // Monto en la fecha seleccionada
+    dateAmount.value = selectedAmount;
+
+    // Label en la fecha seleccionada
+    const dateString = movements.value[index].date.toLocaleString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    });
+    dateLabel.value = `Ahorro hasta el ${dateString}`;
 };
 </script>
 
