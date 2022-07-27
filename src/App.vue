@@ -27,4 +27,4 @@ const HomePage = defineAsyncComponent(() => {
 });
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" src="./sass/styles.scss"></style>
