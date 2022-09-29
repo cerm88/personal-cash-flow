@@ -44,15 +44,15 @@ a {
     min-height: inherit;
 }
 
+textarea {
+    resize: none;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+    appearance: none;
 }
 
 input[type='number'] {
-    -moz-appearance: textfield;
-}
-
-textarea {
-    resize: none;
+    appearance: textfield;
 }

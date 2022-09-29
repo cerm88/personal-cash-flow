@@ -7,10 +7,10 @@ html {
     margin: 0;
     padding: 0;
     border: 0;
-    box-sizing: inherit;
     vertical-align: baseline;
 }
 
+*,
 *::before,
 *::after {
     box-sizing: inherit;
@@ -69,10 +69,10 @@ em {
     color: inherit;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
     content: '';
     content: none;
 }
@@ -93,9 +93,14 @@ label {
 
 table,
 tr,
-td {
+td,
+th {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+th {
+    font-weight: none;
 }
 
 svg {
